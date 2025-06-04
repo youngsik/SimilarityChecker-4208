@@ -56,7 +56,7 @@ class SimilarityCheckerTest {
         assertEquals(output, expected);
     }
 
-    /*
+
     @Test
     void RemoveDuplicateChar() {
 
@@ -74,7 +74,7 @@ class SimilarityCheckerTest {
         assertEquals(output, expected);
     }
 
-     */
+
 
 
 }
