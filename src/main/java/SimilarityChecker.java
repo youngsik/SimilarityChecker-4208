@@ -1,25 +1,33 @@
+import java.util.List;
+
 public class SimilarityChecker {
+
+    private static final int maxScore = 60;
 
     public int guessStrCountMark(String input1, String input2) {
 
-        if (input1.length() == input2.length()) return 60;
+        if (input1.length() == input2.length()) return maxScore;
+        if (input1.length() >= input2.length() * 2|| input2.length() >= input1.length() * 2) return 0;
 
-        int longLength = input1.length();
-        int shortLength = input2.length();
-
-        if(input2.length() > input1.length())
-        {
-            longLength = input2.length();
-            shortLength = input1.length();
-        }
-
-        return getMark(longLength, shortLength);
+        return getMark(Math.max(input1.length(), input2.length()), Math.min(input1.length(), input2.length()));
     }
 
     private static int getMark(int longLength, int shortLength) {
-        double gab = (double)(longLength - shortLength);
+        double gab = longLength - shortLength;
         double gabDivideShort = gab / (double) shortLength;
-        int mark = (int) ((1- gabDivideShort) * 60);
+        int mark = (int) ((1 - gabDivideShort) * maxScore);
         return mark;
     }
+
+    /*
+
+    public List<String> findDuplicateRemoveList(String input1) {
+
+        for(int i =0; i<input1.length(); i++)
+        {
+
+        }
+
+        return null;
+    }*/
 }

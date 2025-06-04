@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SimilarityCheckerTest {
@@ -17,6 +20,19 @@ class SimilarityCheckerTest {
     }
 
     @Test
+    void CountOverDoubleStringLength() {
+
+        SimilarityChecker similarityChecker = new SimilarityChecker();
+        String input1 = "AB";
+        String input2 = "EFGHER";
+        int expected = 0;
+        int output =similarityChecker.guessStrCountMark(input1,input2);
+
+        assertEquals(output, expected);
+    }
+
+
+    @Test
     void CountDifferenceStringLength() {
 
         SimilarityChecker similarityChecker = new SimilarityChecker();
@@ -32,12 +48,33 @@ class SimilarityCheckerTest {
     void CountDifferenceStringLength2() {
 
         SimilarityChecker similarityChecker = new SimilarityChecker();
-        String input1 = "ABCDEQW";
+        String input1 = "ABCDE";
         String input2 = "EFG";
-        int expected = -19;
+        int expected = 20;
         int output =similarityChecker.guessStrCountMark(input1,input2);
 
         assertEquals(output, expected);
     }
+
+    /*
+    @Test
+    void RemoveDuplicateChar() {
+
+        SimilarityChecker similarityChecker = new SimilarityChecker();
+        String input1 = "ABAB";
+        List<String> expected =new ArrayList<String>();
+        expected.add("A");
+        expected.add("B");
+
+        //int output =similarityChecker.guessStrAlphabetMark(input1,input2);
+
+        List<String> output =similarityChecker.findDuplicateRemoveList(input1);
+
+
+        assertEquals(output, expected);
+    }
+
+     */
+
 
 }
