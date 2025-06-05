@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -68,13 +69,32 @@ class SimilarityCheckerTest {
         expected.add("B");
         expected.add("C");
         expected.add("D");
+        Collections.sort(expected);
         //int output =similarityChecker.guessStrAlphabetMark(input1,input2);
 
         List<String> output =similarityChecker.findDuplicateRemoveList(input1);
-        assertTrue(new HashSet<>(output).equals(new HashSet<>(expected)));
+        Collections.sort(output);
+        assertEquals(output,expected);
     }
 
+    @Test
+    void CheckAlphabetCount() {
 
+        SimilarityChecker similarityChecker = new SimilarityChecker();
+        String input1 = "CDDDAB";
+        String input2 = "ABCD";
+        List<String> expected =new ArrayList<String>();
+        expected.add("A");
+        expected.add("B");
+        expected.add("C");
+        expected.add("D");
+        //Collections.sort(expected);
+        //int output =similarityChecker.guessStrAlphabetMark(input1,input2);
+
+        List<String> output =similarityChecker.getUsedCharCount(input1,input2);
+        //Collections.sort(output);
+        assertEquals(output,expected);
+    }
 
 
 }
