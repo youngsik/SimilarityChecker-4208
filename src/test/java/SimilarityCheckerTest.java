@@ -88,6 +88,7 @@ class SimilarityCheckerTest {
         expected.add("B");
         expected.add("C");
         expected.add("D");
+        //check
         //Collections.sort(expected);
         //int output =similarityChecker.guessStrAlphabetMark(input1,input2);
 
