@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,25 +58,44 @@ class SimilarityCheckerTest {
         assertEquals(output, expected);
     }
 
-    /*
+
     @Test
     void RemoveDuplicateChar() {
 
         SimilarityChecker similarityChecker = new SimilarityChecker();
-        String input1 = "ABAB";
+        String input1 = "CDDDAB";
         List<String> expected =new ArrayList<String>();
         expected.add("A");
         expected.add("B");
-
+        expected.add("C");
+        expected.add("D");
+        Collections.sort(expected);
         //int output =similarityChecker.guessStrAlphabetMark(input1,input2);
 
         List<String> output =similarityChecker.findDuplicateRemoveList(input1);
-
-
-        assertEquals(output, expected);
+        Collections.sort(output);
+        assertEquals(output,expected);
     }
 
-     */
+    @Test
+    void CheckAlphabetCount() {
+
+        SimilarityChecker similarityChecker = new SimilarityChecker();
+        String input1 = "CDDDAB";
+        String input2 = "ABCD";
+        List<String> expected =new ArrayList<String>();
+        expected.add("A");
+        expected.add("B");
+        expected.add("C");
+        expected.add("D");
+        //check
+        //Collections.sort(expected);
+        //int output =similarityChecker.guessStrAlphabetMark(input1,input2);
+
+        List<String> output =similarityChecker.getUsedCharCount(input1,input2);
+        //Collections.sort(output);
+        assertEquals(output,expected);
+    }
 
 
 }

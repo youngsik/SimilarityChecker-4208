@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class SimilarityChecker {
@@ -19,15 +20,17 @@ public class SimilarityChecker {
         return mark;
     }
 
-    /*
 
-    public List<String> findDuplicateRemoveList(String input1) {
 
-        for(int i =0; i<input1.length(); i++)
-        {
+    public List<String> findDuplicateRemoveList(String checkDuplicatedString) {
 
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < checkDuplicatedString.length(); i++) {
+            String ch = String.valueOf(checkDuplicatedString.charAt(i));
+            if (!result.contains(ch)) {
+                result.add(ch);
+            }
         }
-
-        return null;
-    }*/
+        return result;
+    }
 }
